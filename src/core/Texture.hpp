@@ -3,17 +3,17 @@
 #include <SDL3_image/SDL_image.h>
 #include <stdexcept>
 
-// Automatically destroys the texture when it goes out of scope
+// Automatically destroys the texture when it goes out of scope (RAII)
 class Texture {
     SDL_Texture* m_handle;
 
 public:
-    // Load an image file and create a GPU texture from it
     Texture(SDL_Renderer* renderer, const char* path)
         : m_handle(IMG_LoadTexture(renderer, path))
     {
+        // SDL3_image uses SDL_GetError(), not IMG_GetError()
         if (!m_handle) {
-            throw std::runtime_error(IMG_GetError());
+            throw std::runtime_error(SDL_GetError());
         }
     }
 
@@ -23,11 +23,9 @@ public:
         }
     }
 
-    // Prevent copying — a texture is a unique GPU resource
     Texture(const Texture&) = delete;
     Texture& operator=(const Texture&) = delete;
 
-    // Allow moving — transfer ownership of the GPU resource
     Texture(Texture&& other) noexcept : m_handle(other.m_handle) {
         other.m_handle = nullptr;
     }
