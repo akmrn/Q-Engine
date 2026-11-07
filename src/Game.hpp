@@ -9,9 +9,9 @@
 
 // The main game class — owns the window, renderer, and game state
 class Game {
-    SDLContext m_sdl;
-    Window     m_window;
-    Renderer   m_renderer;
+    app::SDLContext m_sdl;
+    app::Window     m_window;
+    app::Renderer   m_renderer;
 
     std::unique_ptr<Texture> m_texture;
 

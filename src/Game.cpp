@@ -3,9 +3,9 @@
 #include <iostream>
 
 Game::Game()
-    : m_sdl()
+    : m_sdl(SDL_INIT_VIDEO)
     , m_window("My Game", 800, 600)
-    , m_renderer(m_window.get())
+    , m_renderer(m_window)
 {
     // SDL3_image does NOT require IMG_Init() — it initializes automatically.
     // Just load textures directly.
