@@ -25,10 +25,22 @@ Game::~Game() {
     // Renderer, Window, SDLContext each clean up in their own destructors
 }
 
+void Game::registerHandlers()
+{
+    m_eventLoop.on(SDL_EVENT_QUIT, [this](const SDL_Event&) {
+        m_eventLoop.request_quit();
+    });
+
+    m_eventLoop.on(SDL_EVENT_KEY_DOWN, [this](const SDL_Event& e) {
+        if (e.key.scancode == SDL_SCANCODE_ESCAPE)
+            m_eventLoop.request_quit();
+    });
+}
+
 void Game::run() {
     Uint64 lastTicks = SDL_GetTicks();
 
-    while (m_running) {
+    while (!m_eventLoop.quit_requested()) {
         Uint64 currentTicks = SDL_GetTicks();
         float deltaTime = (currentTicks - lastTicks) / 1000.0f;
         lastTicks = currentTicks;
@@ -36,21 +48,9 @@ void Game::run() {
         // Cap delta time to prevent large jumps when the window is moved
         if (deltaTime > 0.1f) deltaTime = 0.1f;
 
-        handleEvents();
+        m_eventLoop.poll();
         update(deltaTime);
         render();
-    }
-}
-
-void Game::handleEvents() {
-    SDL_Event event;
-    while (SDL_PollEvent(&event)) {
-        if (event.type == SDL_EVENT_QUIT)
-            m_running = false;
-
-        if (event.type == SDL_EVENT_KEY_DOWN &&
-            event.key.scancode == SDL_SCANCODE_ESCAPE)
-            m_running = false;
     }
 }
 
