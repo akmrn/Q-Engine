@@ -2,7 +2,7 @@
 
 #include <SDL3/SDL.h>
 
-#include "../core/Window.hpp"
+#include "../platform/Window.hpp"
 
 #include <utility>
 

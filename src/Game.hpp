@@ -3,10 +3,10 @@
 #include <SDL3_image/SDL_image.h>
 #include <memory>                    // Required for std::unique_ptr
 
-#include "core/SDLContext.hpp"
-#include "core/Window.hpp"
+#include "platform/SDLContext.hpp"
+#include "platform/Window.hpp"
 #include "renderer/Renderer.hpp"
-#include "core/Texture.hpp"
+#include "renderer/Texture.hpp"
 #include "events/EventLoop.hpp"
 
 // The main game class — owns the window, renderer, and game state
