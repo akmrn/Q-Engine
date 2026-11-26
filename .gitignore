@@ -1,7 +1,27 @@
+# Build directory and all its contents (including game and game.exe)
 build/
-cmake-build-*/
+bin/
+
+# Linux executable binary (in case it is compiled outside the build directory)
+game
+
+# Windows executable binaries
+*.exe
+
+# Temporary compiled object files and static/dynamic libraries
 *.o
 *.obj
-*.exe
+*.a
+*.so
+*.dylib
+
+# Potential core dump files from Linux crashes
+core
+core.*
+*.dump
+
+# System and IDE configuration files/folders
 .vscode/
 .idea/
+.DS_Store
+Thumbs.db
