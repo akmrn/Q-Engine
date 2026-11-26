@@ -5,9 +5,10 @@
 
 #include "core/SDLContext.hpp"
 #include "core/Window.hpp"
-#include "core/Renderer.hpp"
+#include "renderer/Renderer.hpp"
 #include "core/Texture.hpp"
 #include "events/EventLoop.hpp"
+
 // The main game class — owns the window, renderer, and game state
 class Game {
     app::SDLContext m_sdl;
@@ -22,8 +23,6 @@ class Game {
     float m_playerY = 250.0f;
     float m_texW    = 100.0f;
     float m_texH    = 100.0f;
-
-    bool m_running = true;
 
 public:
     Game();
