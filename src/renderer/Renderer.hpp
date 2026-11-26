@@ -2,7 +2,7 @@
 
 #include <SDL3/SDL.h>
 
-#include "Window.hpp"
+#include "../core/Window.hpp"
 
 #include <utility>
 
@@ -34,6 +34,9 @@ namespace app
             void clear(SDL_Color color);
             /// Flip the back buffer to the screen.
             void present();
+
+            void draw_texture(SDL_Texture* texture, const SDL_FRect* dest);
+            void fill_rect(const SDL_FRect& rect, SDL_Color color);
 
             void set_vsync(bool enabled);
             void set_logical_size(int width, int height);

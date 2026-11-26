@@ -1,5 +1,6 @@
 #include "Renderer.hpp"
 
+#include <SDL3/SDL_render.h>
 #include <format>
 #include <stdexcept>
 #include <utility>
@@ -69,6 +70,29 @@ namespace app
         if (!SDL_RenderPresent(renderer_)) {
             throw std::runtime_error(
                 std::format("SDL_RenderPresent failed: {}", SDL_GetError()));
+        }
+    }
+
+    void Renderer::draw_texture(SDL_Texture *texture, const SDL_FRect *dest)
+    {
+        if (!SDL_RenderTexture(renderer_, texture, nullptr, dest))
+        {
+            throw std::runtime_error(
+                std::format("SDL_RenderTexture failed: {}", SDL_GetError()));
+        }
+    }
+
+    void Renderer::fill_rect(const SDL_FRect& rect, SDL_Color color)
+    {
+        if (!SDL_SetRenderDrawColor(renderer_, color.r, color.g, color.b, color.a))
+        {
+            throw std::runtime_error(
+                std::format("SDL_SetRenderDrawColor failed: {}", SDL_GetError()));
+        }
+        if (!SDL_RenderFillRect(renderer_, &rect))
+        {
+            throw std::runtime_error(
+                std::format("SDL_SetRenderFillRect failed: {}", SDL_GetError()));
         }
     }
 
