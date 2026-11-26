@@ -25,6 +25,9 @@ namespace app
                 quit_ = true;
             }
 
+            // Create a local snapshot of any_handlers_ to prevent iterator invalidation
+            // if a handler registers new handlers during execution.
+            auto anyHandlersSnapshot = any_handlers_;
             for (const auto& h : any_handlers_)
             {
                 h(event);
@@ -32,6 +35,8 @@ namespace app
 
             if (auto it = handlers_.find(event.type); it != handlers_.end())
             {
+                // Create a local snapshot of specific handlers as well
+                auto handlersSnapshot = it->second;
                 for (const auto& h : it->second)
                 {
                     h(event);
