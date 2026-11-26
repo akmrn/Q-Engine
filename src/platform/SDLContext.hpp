@@ -2,7 +2,7 @@
 
 #include <SDL3/SDL.h>
 
-namespace app
+namespace Qeng
 {
 /// RAII wrapper around SDL_Init / SDL_Quit.
 ///
@@ -35,4 +35,4 @@ namespace app
             SDL_InitFlags m_flags;
     };
 
-} // namespace app
+} // namespace Qeng

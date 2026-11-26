@@ -6,7 +6,7 @@
 
 #include <utility>
 
-namespace app
+namespace Qeng
 {
 
     /// RAII owner of an SDL_Renderer.
@@ -46,4 +46,4 @@ namespace app
             SDL_Renderer* renderer_ = nullptr;
     };
 
-} // namespace app
+} // namespace Qeng

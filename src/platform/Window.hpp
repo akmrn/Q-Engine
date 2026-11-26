@@ -8,7 +8,7 @@
 #include <string_view>
 #include <utility>
 
-namespace app
+namespace Qeng
 {
 
     class Window
@@ -42,4 +42,4 @@ namespace app
             SDL_Window* window_ = nullptr;
 };
 
-} // namespace app
+} // namespace Qeng

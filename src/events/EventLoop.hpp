@@ -6,7 +6,7 @@
 #include <unordered_map>
 #include <vector>
 
-namespace app
+namespace Qeng
 {
 
     /// Polls SDL events and dispatches them to registered handlers.
@@ -42,4 +42,4 @@ namespace app
                 bool quit_ = false;
     };
 
-} // namespace app
+} // namespace Qeng

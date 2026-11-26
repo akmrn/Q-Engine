@@ -2,7 +2,7 @@
 
 #include <utility>
 
-namespace app
+namespace Qeng
 {
 
     Window::Window(std::string_view title, int width, int height, SDL_WindowFlags flags)
@@ -82,4 +82,4 @@ namespace app
         }
     }
 
-} // namespace app
+} // namespace Qeng

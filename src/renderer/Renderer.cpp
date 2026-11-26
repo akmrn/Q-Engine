@@ -5,7 +5,7 @@
 #include <stdexcept>
 #include <utility>
 
-namespace app
+namespace Qeng
 {
 
     Renderer::Renderer(const Window& window, const char* driver)
@@ -119,4 +119,4 @@ namespace app
         SDL_GetCurrentRenderOutputSize(renderer_, &w, &h);
         return {w, h};
     }
-} // namespace app
+} // namespace Qeng

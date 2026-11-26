@@ -2,7 +2,7 @@
 
 #include <utility>
 
-namespace app
+namespace Qeng
 {
 
     void EventLoop::on(SDL_EventType type, Handler handler)
@@ -45,4 +45,4 @@ namespace app
         }
     }
 
-} // namespace app
+} // namespace Qeng

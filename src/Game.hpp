@@ -11,13 +11,13 @@
 
 // The main game class — owns the window, renderer, and game state
 class Game {
-    app::SDLContext m_sdl;
-    app::Window     m_window;
-    app::Renderer   m_renderer;
+    Qeng::SDLContext m_sdl;
+    Qeng::Window     m_window;
+    Qeng::Renderer   m_renderer;
 
     std::unique_ptr<Texture> m_texture;
 
-    app::EventLoop   m_eventLoop;
+    Qeng::EventLoop   m_eventLoop;
 
     float m_playerX = 350.0f;
     float m_playerY = 250.0f;

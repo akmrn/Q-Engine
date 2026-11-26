@@ -3,7 +3,7 @@
 #include <stdexcept>
 #include <format>
 
-namespace app
+namespace Qeng
 {
 
     SDLContext::SDLContext(SDL_InitFlags flags) : m_flags(flags)
@@ -33,4 +33,4 @@ namespace app
         return (SDL_WasInit(flags) & flags) == flags;
     }
 
-} // namespace app
+} // namespace Qeng
