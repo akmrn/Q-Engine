@@ -16,7 +16,7 @@ game
 *.dylib
 
 # Potential core dump files from Linux crashes
-core
+/core
 core.*
 *.dump
 
